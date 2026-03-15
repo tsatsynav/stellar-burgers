@@ -1,5 +1,5 @@
-export const WS_BASE_URL = 'wss://norma.nomoreparties.space/orders';
-
+//export const WS_BASE_URL = 'wss://norma.nomoreparties.space/orders';
+export const WS_BASE_URL = 'wss://norma.education-services.ru/orders';
 export const WS_ALL_ORDERS_URL = `${WS_BASE_URL}/all`;
 export const WS_USER_ORDERS_URL = WS_BASE_URL;
 
