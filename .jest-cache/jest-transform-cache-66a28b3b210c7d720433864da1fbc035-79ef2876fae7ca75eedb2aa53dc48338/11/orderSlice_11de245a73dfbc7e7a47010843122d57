@@ -1,0 +1,95 @@
+a8bb0c1a6ab9c443e84d517d7aa6d076
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.closeOrderModal = exports.postOrder = void 0;
+var toolkit_1 = require("@reduxjs/toolkit");
+var _api_1 = require("@api");
+exports.postOrder = (0, toolkit_1.createAsyncThunk)('order/post', function (data) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+    switch (_a.label) {
+        case 0: return [4 /*yield*/, (0, _api_1.orderBurgerApi)(data)];
+        case 1: return [2 /*return*/, _a.sent()];
+    }
+}); }); });
+var initialState = {
+    orderRequest: false,
+    orderModalData: null,
+    error: null
+};
+var orderSlice = (0, toolkit_1.createSlice)({
+    name: 'order',
+    initialState: initialState,
+    reducers: {
+        closeOrderModal: function (state) {
+            state.orderModalData = null;
+            state.error = null;
+        }
+    },
+    extraReducers: function (builder) {
+        builder
+            .addCase(exports.postOrder.pending, function (state) {
+            state.orderRequest = true;
+            state.error = null;
+        })
+            .addCase(exports.postOrder.fulfilled, function (state, action) {
+            state.orderRequest = false;
+            var order = action.payload.order;
+            // Создаём объект, совместимый с TOrder (добавляем ingredients)
+            state.orderModalData = __assign(__assign({}, order), { ingredients: [] // для совместимости с типом TOrder
+             });
+        })
+            .addCase(exports.postOrder.rejected, function (state, action) {
+            state.orderRequest = false;
+            state.error = action.error.message || 'Ошибка оформления заказа';
+        });
+    }
+});
+exports.closeOrderModal = orderSlice.actions.closeOrderModal;
+exports.default = orderSlice.reducer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFx0c2F0c3luXFxEb2N1bWVudHNcXHN0ZWxsYXItYnVyZ2Vyc1xcc3JjXFxzZXJ2aWNlc1xcc2xpY2VzXFxvcmRlclNsaWNlLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsNENBQWlFO0FBQ2pFLDZCQUFzQztBQUd6QixRQUFBLFNBQVMsR0FBRyxJQUFBLDBCQUFnQixFQUN2QyxZQUFZLEVBQ1osVUFBTyxJQUFjOztnQkFBSyxxQkFBTSxJQUFBLHFCQUFjLEVBQUMsSUFBSSxDQUFDLEVBQUE7Z0JBQTFCLHNCQUFBLFNBQTBCLEVBQUE7O1NBQUEsQ0FDckQsQ0FBQztBQVFGLElBQU0sWUFBWSxHQUFlO0lBQy9CLFlBQVksRUFBRSxLQUFLO0lBQ25CLGNBQWMsRUFBRSxJQUFJO0lBQ3BCLEtBQUssRUFBRSxJQUFJO0NBQ1osQ0FBQztBQUVGLElBQU0sVUFBVSxHQUFHLElBQUEscUJBQVcsRUFBQztJQUM3QixJQUFJLEVBQUUsT0FBTztJQUNiLFlBQVksY0FBQTtJQUNaLFFBQVEsRUFBRTtRQUNSLGVBQWUsRUFBRSxVQUFDLEtBQUs7WUFDckIsS0FBSyxDQUFDLGNBQWMsR0FBRyxJQUFJLENBQUM7WUFDNUIsS0FBSyxDQUFDLEtBQUssR0FBRyxJQUFJLENBQUM7UUFDckIsQ0FBQztLQUNGO0lBQ0QsYUFBYSxFQUFFLFVBQUMsT0FBTztRQUNyQixPQUFPO2FBQ0osT0FBTyxDQUFDLGlCQUFTLENBQUMsT0FBTyxFQUFFLFVBQUMsS0FBSztZQUNoQyxLQUFLLENBQUMsWUFBWSxHQUFHLElBQUksQ0FBQztZQUMxQixLQUFLLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQztRQUNyQixDQUFDLENBQUM7YUFDRCxPQUFPLENBQUMsaUJBQVMsQ0FBQyxTQUFTLEVBQUUsVUFBQyxLQUFLLEVBQUUsTUFBTTtZQUMxQyxLQUFLLENBQUMsWUFBWSxHQUFHLEtBQUssQ0FBQztZQUNuQixJQUFBLEtBQUssR0FBSyxNQUFNLENBQUMsT0FBTyxNQUFuQixDQUFvQjtZQUNqQywrREFBK0Q7WUFDL0QsS0FBSyxDQUFDLGNBQWMseUJBQ2YsS0FBSyxLQUNSLFdBQVcsRUFBRSxFQUFFLENBQUMsbUNBQW1DO2VBQ3BELENBQUM7UUFDSixDQUFDLENBQUM7YUFDRCxPQUFPLENBQUMsaUJBQVMsQ0FBQyxRQUFRLEVBQUUsVUFBQyxLQUFLLEVBQUUsTUFBTTtZQUN6QyxLQUFLLENBQUMsWUFBWSxHQUFHLEtBQUssQ0FBQztZQUMzQixLQUFLLENBQUMsS0FBSyxHQUFHLE1BQU0sQ0FBQyxLQUFLLENBQUMsT0FBTyxJQUFJLDBCQUEwQixDQUFDO1FBQ25FLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztDQUNGLENBQUMsQ0FBQztBQUVZLFFBQUEsZUFBZSxHQUFLLFVBQVUsQ0FBQyxPQUFPLGlCQUFDO0FBQ3RELGtCQUFlLFVBQVUsQ0FBQyxPQUFPLENBQUMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXFVzZXJzXFx0c2F0c3luXFxEb2N1bWVudHNcXHN0ZWxsYXItYnVyZ2Vyc1xcc3JjXFxzZXJ2aWNlc1xcc2xpY2VzXFxvcmRlclNsaWNlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNyZWF0ZVNsaWNlLCBjcmVhdGVBc3luY1RodW5rIH0gZnJvbSAnQHJlZHV4anMvdG9vbGtpdCc7XHJcbmltcG9ydCB7IG9yZGVyQnVyZ2VyQXBpIH0gZnJvbSAnQGFwaSc7XHJcbmltcG9ydCB7IFRPcmRlciB9IGZyb20gJ0B1dGlscy10eXBlcyc7XHJcblxyXG5leHBvcnQgY29uc3QgcG9zdE9yZGVyID0gY3JlYXRlQXN5bmNUaHVuayhcclxuICAnb3JkZXIvcG9zdCcsXHJcbiAgYXN5bmMgKGRhdGE6IHN0cmluZ1tdKSA9PiBhd2FpdCBvcmRlckJ1cmdlckFwaShkYXRhKVxyXG4pO1xyXG5cclxuaW50ZXJmYWNlIE9yZGVyU3RhdGUge1xyXG4gIG9yZGVyUmVxdWVzdDogYm9vbGVhbjtcclxuICBvcmRlck1vZGFsRGF0YTogVE9yZGVyIHwgbnVsbDtcclxuICBlcnJvcjogc3RyaW5nIHwgbnVsbDtcclxufVxyXG5cclxuY29uc3QgaW5pdGlhbFN0YXRlOiBPcmRlclN0YXRlID0ge1xyXG4gIG9yZGVyUmVxdWVzdDogZmFsc2UsXHJcbiAgb3JkZXJNb2RhbERhdGE6IG51bGwsXHJcbiAgZXJyb3I6IG51bGxcclxufTtcclxuXHJcbmNvbnN0IG9yZGVyU2xpY2UgPSBjcmVhdGVTbGljZSh7XHJcbiAgbmFtZTogJ29yZGVyJyxcclxuICBpbml0aWFsU3RhdGUsXHJcbiAgcmVkdWNlcnM6IHtcclxuICAgIGNsb3NlT3JkZXJNb2RhbDogKHN0YXRlKSA9PiB7XHJcbiAgICAgIHN0YXRlLm9yZGVyTW9kYWxEYXRhID0gbnVsbDtcclxuICAgICAgc3RhdGUuZXJyb3IgPSBudWxsO1xyXG4gICAgfVxyXG4gIH0sXHJcbiAgZXh0cmFSZWR1Y2VyczogKGJ1aWxkZXIpID0+IHtcclxuICAgIGJ1aWxkZXJcclxuICAgICAgLmFkZENhc2UocG9zdE9yZGVyLnBlbmRpbmcsIChzdGF0ZSkgPT4ge1xyXG4gICAgICAgIHN0YXRlLm9yZGVyUmVxdWVzdCA9IHRydWU7XHJcbiAgICAgICAgc3RhdGUuZXJyb3IgPSBudWxsO1xyXG4gICAgICB9KVxyXG4gICAgICAuYWRkQ2FzZShwb3N0T3JkZXIuZnVsZmlsbGVkLCAoc3RhdGUsIGFjdGlvbikgPT4ge1xyXG4gICAgICAgIHN0YXRlLm9yZGVyUmVxdWVzdCA9IGZhbHNlO1xyXG4gICAgICAgIGNvbnN0IHsgb3JkZXIgfSA9IGFjdGlvbi5wYXlsb2FkO1xyXG4gICAgICAgIC8vINCh0L7Qt9C00LDRkdC8INC+0LHRitC10LrRgiwg0YHQvtCy0LzQtdGB0YLQuNC80YvQuSDRgSBUT3JkZXIgKNC00L7QsdCw0LLQu9GP0LXQvCBpbmdyZWRpZW50cylcclxuICAgICAgICBzdGF0ZS5vcmRlck1vZGFsRGF0YSA9IHtcclxuICAgICAgICAgIC4uLm9yZGVyLFxyXG4gICAgICAgICAgaW5ncmVkaWVudHM6IFtdIC8vINC00LvRjyDRgdC+0LLQvNC10YHRgtC40LzQvtGB0YLQuCDRgSDRgtC40L/QvtC8IFRPcmRlclxyXG4gICAgICAgIH07XHJcbiAgICAgIH0pXHJcbiAgICAgIC5hZGRDYXNlKHBvc3RPcmRlci5yZWplY3RlZCwgKHN0YXRlLCBhY3Rpb24pID0+IHtcclxuICAgICAgICBzdGF0ZS5vcmRlclJlcXVlc3QgPSBmYWxzZTtcclxuICAgICAgICBzdGF0ZS5lcnJvciA9IGFjdGlvbi5lcnJvci5tZXNzYWdlIHx8ICfQntGI0LjQsdC60LAg0L7RhNC+0YDQvNC70LXQvdC40Y8g0LfQsNC60LDQt9CwJztcclxuICAgICAgfSk7XHJcbiAgfVxyXG59KTtcclxuXHJcbmV4cG9ydCBjb25zdCB7IGNsb3NlT3JkZXJNb2RhbCB9ID0gb3JkZXJTbGljZS5hY3Rpb25zO1xyXG5leHBvcnQgZGVmYXVsdCBvcmRlclNsaWNlLnJlZHVjZXI7XHJcbiJdLCJ2ZXJzaW9uIjozfQ==

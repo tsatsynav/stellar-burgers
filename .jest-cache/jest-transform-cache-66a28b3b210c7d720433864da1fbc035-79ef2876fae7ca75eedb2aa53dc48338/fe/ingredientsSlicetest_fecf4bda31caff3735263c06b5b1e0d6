@@ -1,0 +1,49 @@
+778b134c5279156a3e0b45392f82ec47
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var ingredientsSlice_1 = __importStar(require("./ingredientsSlice"));
+describe('ingredients slice', function () {
+    var mockIngredients = [
+        { _id: '1', name: 'Булка', type: 'bun', price: 100, image: '', image_large: '', image_mobile: '', proteins: 0, fat: 0, carbohydrates: 0, calories: 0 }
+    ];
+    it('should set loading true on pending', function () {
+        var state = (0, ingredientsSlice_1.default)(undefined, ingredientsSlice_1.getIngredients.pending('', undefined));
+        expect(state.loading).toBe(true);
+        expect(state.error).toBeNull();
+    });
+    it('should set ingredients and loading false on fulfilled', function () {
+        var state = (0, ingredientsSlice_1.default)(undefined, ingredientsSlice_1.getIngredients.fulfilled(mockIngredients, ''));
+        expect(state.loading).toBe(false);
+        expect(state.ingredients).toEqual(mockIngredients);
+    });
+    it('should set error and loading false on rejected', function () {
+        var error = new Error('Server error');
+        var state = (0, ingredientsSlice_1.default)(undefined, ingredientsSlice_1.getIngredients.rejected(error, ''));
+        expect(state.loading).toBe(false);
+        expect(state.error).toBe('Server error');
+    });
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiQzpcXFVzZXJzXFx0c2F0c3luXFxEb2N1bWVudHNcXHN0ZWxsYXItYnVyZ2Vyc1xcc3JjXFxzZXJ2aWNlc1xcc2xpY2VzXFxpbmdyZWRpZW50c1NsaWNlLnRlc3QudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLHFFQUF3RTtBQUd4RSxRQUFRLENBQUMsbUJBQW1CLEVBQUU7SUFDNUIsSUFBTSxlQUFlLEdBQWtCO1FBQ3JDLEVBQUUsR0FBRyxFQUFFLEdBQUcsRUFBRSxJQUFJLEVBQUUsT0FBTyxFQUFFLElBQUksRUFBRSxLQUFLLEVBQUUsS0FBSyxFQUFFLEdBQUcsRUFBRSxLQUFLLEVBQUUsRUFBRSxFQUFFLFdBQVcsRUFBRSxFQUFFLEVBQUUsWUFBWSxFQUFFLEVBQUUsRUFBRSxRQUFRLEVBQUUsQ0FBQyxFQUFFLEdBQUcsRUFBRSxDQUFDLEVBQUUsYUFBYSxFQUFFLENBQUMsRUFBRSxRQUFRLEVBQUUsQ0FBQyxFQUFFO0tBQ3ZKLENBQUM7SUFFRixFQUFFLENBQUMsb0NBQW9DLEVBQUU7UUFDdkMsSUFBTSxLQUFLLEdBQUcsSUFBQSwwQkFBa0IsRUFBQyxTQUFTLEVBQUUsaUNBQWMsQ0FBQyxPQUFPLENBQUMsRUFBRSxFQUFFLFNBQVMsQ0FBQyxDQUFDLENBQUM7UUFDbkYsTUFBTSxDQUFDLEtBQUssQ0FBQyxPQUFPLENBQUMsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDakMsTUFBTSxDQUFDLEtBQUssQ0FBQyxLQUFLLENBQUMsQ0FBQyxRQUFRLEVBQUUsQ0FBQztJQUNqQyxDQUFDLENBQUMsQ0FBQztJQUVILEVBQUUsQ0FBQyx1REFBdUQsRUFBRTtRQUMxRCxJQUFNLEtBQUssR0FBRyxJQUFBLDBCQUFrQixFQUFDLFNBQVMsRUFBRSxpQ0FBYyxDQUFDLFNBQVMsQ0FBQyxlQUFlLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQztRQUMzRixNQUFNLENBQUMsS0FBSyxDQUFDLE9BQU8sQ0FBQyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNsQyxNQUFNLENBQUMsS0FBSyxDQUFDLFdBQVcsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxlQUFlLENBQUMsQ0FBQztJQUNyRCxDQUFDLENBQUMsQ0FBQztJQUVILEVBQUUsQ0FBQyxnREFBZ0QsRUFBRTtRQUNuRCxJQUFNLEtBQUssR0FBRyxJQUFJLEtBQUssQ0FBQyxjQUFjLENBQUMsQ0FBQztRQUN4QyxJQUFNLEtBQUssR0FBRyxJQUFBLDBCQUFrQixFQUFDLFNBQVMsRUFBRSxpQ0FBYyxDQUFDLFFBQVEsQ0FBQyxLQUFLLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQztRQUNoRixNQUFNLENBQUMsS0FBSyxDQUFDLE9BQU8sQ0FBQyxDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUNsQyxNQUFNLENBQUMsS0FBSyxDQUFDLEtBQUssQ0FBQyxDQUFDLElBQUksQ0FBQyxjQUFjLENBQUMsQ0FBQztJQUMzQyxDQUFDLENBQUMsQ0FBQztBQUNMLENBQUMsQ0FBQyxDQUFDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcdHNhdHN5blxcRG9jdW1lbnRzXFxzdGVsbGFyLWJ1cmdlcnNcXHNyY1xcc2VydmljZXNcXHNsaWNlc1xcaW5ncmVkaWVudHNTbGljZS50ZXN0LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBpbmdyZWRpZW50c1JlZHVjZXIsIHsgZ2V0SW5ncmVkaWVudHMgfSBmcm9tICcuL2luZ3JlZGllbnRzU2xpY2UnO1xyXG5pbXBvcnQgeyBUSW5ncmVkaWVudCB9IGZyb20gJ0B1dGlscy10eXBlcyc7XHJcblxyXG5kZXNjcmliZSgnaW5ncmVkaWVudHMgc2xpY2UnLCAoKSA9PiB7XHJcbiAgY29uc3QgbW9ja0luZ3JlZGllbnRzOiBUSW5ncmVkaWVudFtdID0gW1xyXG4gICAgeyBfaWQ6ICcxJywgbmFtZTogJ9CR0YPQu9C60LAnLCB0eXBlOiAnYnVuJywgcHJpY2U6IDEwMCwgaW1hZ2U6ICcnLCBpbWFnZV9sYXJnZTogJycsIGltYWdlX21vYmlsZTogJycsIHByb3RlaW5zOiAwLCBmYXQ6IDAsIGNhcmJvaHlkcmF0ZXM6IDAsIGNhbG9yaWVzOiAwIH1cclxuICBdO1xyXG5cclxuICBpdCgnc2hvdWxkIHNldCBsb2FkaW5nIHRydWUgb24gcGVuZGluZycsICgpID0+IHtcclxuICAgIGNvbnN0IHN0YXRlID0gaW5ncmVkaWVudHNSZWR1Y2VyKHVuZGVmaW5lZCwgZ2V0SW5ncmVkaWVudHMucGVuZGluZygnJywgdW5kZWZpbmVkKSk7XHJcbiAgICBleHBlY3Qoc3RhdGUubG9hZGluZykudG9CZSh0cnVlKTtcclxuICAgIGV4cGVjdChzdGF0ZS5lcnJvcikudG9CZU51bGwoKTtcclxuICB9KTtcclxuXHJcbiAgaXQoJ3Nob3VsZCBzZXQgaW5ncmVkaWVudHMgYW5kIGxvYWRpbmcgZmFsc2Ugb24gZnVsZmlsbGVkJywgKCkgPT4ge1xyXG4gICAgY29uc3Qgc3RhdGUgPSBpbmdyZWRpZW50c1JlZHVjZXIodW5kZWZpbmVkLCBnZXRJbmdyZWRpZW50cy5mdWxmaWxsZWQobW9ja0luZ3JlZGllbnRzLCAnJykpO1xyXG4gICAgZXhwZWN0KHN0YXRlLmxvYWRpbmcpLnRvQmUoZmFsc2UpO1xyXG4gICAgZXhwZWN0KHN0YXRlLmluZ3JlZGllbnRzKS50b0VxdWFsKG1vY2tJbmdyZWRpZW50cyk7XHJcbiAgfSk7XHJcblxyXG4gIGl0KCdzaG91bGQgc2V0IGVycm9yIGFuZCBsb2FkaW5nIGZhbHNlIG9uIHJlamVjdGVkJywgKCkgPT4ge1xyXG4gICAgY29uc3QgZXJyb3IgPSBuZXcgRXJyb3IoJ1NlcnZlciBlcnJvcicpO1xyXG4gICAgY29uc3Qgc3RhdGUgPSBpbmdyZWRpZW50c1JlZHVjZXIodW5kZWZpbmVkLCBnZXRJbmdyZWRpZW50cy5yZWplY3RlZChlcnJvciwgJycpKTtcclxuICAgIGV4cGVjdChzdGF0ZS5sb2FkaW5nKS50b0JlKGZhbHNlKTtcclxuICAgIGV4cGVjdChzdGF0ZS5lcnJvcikudG9CZSgnU2VydmVyIGVycm9yJyk7XHJcbiAgfSk7XHJcbn0pOyJdLCJ2ZXJzaW9uIjozfQ==
